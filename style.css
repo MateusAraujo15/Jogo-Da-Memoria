@@ -1,67 +1,84 @@
-/* ----- GERAL ----- */
 body {
-    font-family: "Poppins", Arial, sans-serif;
-    background: linear-gradient(135deg, #4f46e5, #9333ea);
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
     text-align: center;
+    margin: 0;
+    padding: 20px;
 }
 
-/* ----- TÍTULO ----- */
 h1 {
     margin-bottom: 10px;
-    font-size: 36px;
-    text-shadow: 0 0 10px #0005;
 }
 
-/* ----- PAINEL DE INFORMAÇÕES ----- */
-.info {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-/* ----- TABULEIRO ----- */
-.game-board {
-    width: 430px;
-    padding: 15px;
-    background: #ffffff18;
-    backdrop-filter: blur(5px);
-    border-radius: 15px;
-    box-shadow: 0 0 20px #0004;
-
+#game-board {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 15px;
+    max-width: 500px;
+    margin: 20px auto;
 }
 
-/* ----- CARTAS ----- */
 .card {
-    width: 95px;
-    height: 95px;
-
-    background: #ffffff25;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    background-color: #333;
+    border-radius: 10px;
     font-size: 40px;
-    color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
     cursor: pointer;
-    transition: transform 0.3s, background 0.3s, color 0.3s;
-
-    user-select: none;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-.card.flip {
-    background: white;
-    color: black;
-    transform: rotateY(180deg);
+.card.flipped {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+/* ------------------------------ */
+/* RESPONSIVIDADE PARA CELULAR    */
+/* ------------------------------ */
+
+@media (max-width: 600px) {
+    
+    #game-board {
+        grid-template-columns: repeat(3, 1fr);  /* 3 colunas no celular */
+        max-width: 90%;
+        gap: 10px;
+    }
+
+    .card {
+        height: 80px;
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #timer {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    #game-board {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .card {
+        height: 65px;
+        font-size: 26px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #timer {
+        font-size: 16px;
+    }
 }

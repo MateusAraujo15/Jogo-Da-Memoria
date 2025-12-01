@@ -64,7 +64,7 @@ function checkMatch() {
         if (matches === icons.length / 2) {
             clearInterval(interval);
             setTimeout(() => {
-                alert(`🎉 Você venceu! Tempo total: ${time}s`);
+                alert(`🎉 Parabens. Quero ver passar da proxima! Tempo total: ${time}s`);
             }, 300);
         }
         reset();
@@ -81,3 +81,4 @@ function checkMatch() {
 function reset() {
     [firstCard, secondCard, lock] = [null, null, false];
 }
+

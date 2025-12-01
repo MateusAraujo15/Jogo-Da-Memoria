@@ -1,6 +1,8 @@
+/* ======== ESTILO GERAL ======== */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
+    background-color: #1a11; /* fundo escuro */
     color: white;
     text-align: center;
     margin: 0;
@@ -9,76 +11,82 @@ body {
 
 h1 {
     margin-bottom: 10px;
+    font-size: 32px;
 }
+
+#timer {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* ======== TABULEIRO ======== */
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 12px;
+    width: 100%;
     max-width: 500px;
-    margin: 20px auto;
+    margin: 0 auto;
+    padding: 10px;
 }
+
+/* ======== CARTAS ======== */
 
 .card {
     background-color: #333;
-    border-radius: 10px;
-    font-size: 40px;
+    border-radius: 12px;
+    font-size: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    aspect-ratio: 1 / 1; /* carta sempre quadrada */
     cursor: pointer;
     transition: transform 0.2s, background-color 0.2s;
+    user-select: none;
 }
 
-.card.flipped {
-    background-color: #555;
+.card:hover {
     transform: scale(1.05);
 }
 
-/* ------------------------------ */
-/* RESPONSIVIDADE PARA CELULAR    */
-/* ------------------------------ */
-
-@media (max-width: 600px) {
-    
-    #game-board {
-        grid-template-columns: repeat(3, 1fr);  /* 3 colunas no celular */
-        max-width: 90%;
-        gap: 10px;
-    }
-
-    .card {
-        height: 80px;
-        font-size: 30px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    #timer {
-        font-size: 18px;
-    }
+/* Quando estiver virada */
+.card.flipped {
+    background-color: #555;
+    transform: scale(1.07);
 }
 
-@media (max-width: 400px) {
+/* ======== RESPONSIVIDADE ======== */
 
-    #game-board {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-    }
-
-    .card {
-        height: 65px;
-        font-size: 26px;
-    }
-
+@media (max-width: 600px) {
     h1 {
-        font-size: 20px;
+        font-size: 26px;
     }
 
     #timer {
         font-size: 16px;
+    }
+
+    .card {
+        font-size: 26px; /* menor no celular */
+    }
+
+    #game-board {
+        gap: 10px;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 22px;
+    }
+
+    .card {
+        font-size: 22px;
+    }
+
+    #game-board {
+        gap: 8px;
     }
 }

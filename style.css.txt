@@ -1,0 +1,67 @@
+/* ----- GERAL ----- */
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: linear-gradient(135deg, #4f46e5, #9333ea);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+/* ----- TÍTULO ----- */
+h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+    text-shadow: 0 0 10px #0005;
+}
+
+/* ----- PAINEL DE INFORMAÇÕES ----- */
+.info {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* ----- TABULEIRO ----- */
+.game-board {
+    width: 430px;
+    padding: 15px;
+    background: #ffffff18;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    box-shadow: 0 0 20px #0004;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* ----- CARTAS ----- */
+.card {
+    width: 95px;
+    height: 95px;
+
+    background: #ffffff25;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 40px;
+    color: transparent;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s, color 0.3s;
+
+    user-select: none;
+}
+
+.card.flip {
+    background: white;
+    color: black;
+    transform: rotateY(180deg);
+}
